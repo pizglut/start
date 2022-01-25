@@ -1,0 +1,120 @@
+:root {
+    --gd1-color1: #12c2e9;
+    --gd1-color2: #f64f59;
+
+    --gd2-color1: #a8ff78;
+    --gd2-color2: #78ffd6;
+
+    --gd3-color1: #f12711;
+    --gd3-color2: #f5af19;
+
+    --color-info: #00B6FF;
+}
+
+body {
+    font-family: 'Montserrat', sans-sherif;
+    background: url(../grafiki/salon.jpg) no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+    color: #ffffff;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    position: relative;
+    width: 300px;
+    height: 450px;
+    margin: 0 50px;
+}
+
+.card .content {
+    overflow: hidden;
+    border-radius: 20px;
+    height: 100%;
+}
+
+.card .image img {
+    display: block;
+    filter: grayscale(0%) brightness(100%);
+}
+
+.card .title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: right;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7) 50%);
+    padding: 40px 20px 20px;
+    font-size: 2rem;
+    border-radius: 20px;
+}
+
+.card .author {
+    font-size: 0.8rem;
+    opacity: 0.6;
+}
+
+/* ======================= */
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background-color: #fff;
+    border-radius: 20px;
+    z-index: -1;
+    transform: skew(1.5deg, 1.5deg);
+    background: linear-gradient(315deg, var(--gd1-color1), var(--gd1-color2));
+}
+
+.card:nth-child(2)::before {
+    background: linear-gradient(315deg, var(--gd2-color1), var(--gd2-color2));
+}
+
+.card:nth-child(3)::before {
+    background: linear-gradient(315deg, var(--gd3-color1), var(--gd3-color2));
+}
+/* ======================= */
+
+.info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 10px 25px;
+    cursor: help;
+
+    clip-path: circle(5% at 89% 9%);
+    transition: background-color 500ms ease-in-out, clip-path 500ms ease-in-out;
+}
+
+.info:hover {
+    background-color: var(--color-info);
+    clip-path: circle(70%);
+}
+
+.info .icon {
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    font-weight: 700;
+    font-size: 1.1rem;
+
+    transition: color 500ms;
+}
+
+.info:hover .icon {
+    color: var(--color-info);
+}
